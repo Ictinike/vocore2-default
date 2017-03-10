@@ -53,9 +53,10 @@ RUN ./scripts/feeds update -a  && ./scripts/feeds install -a
 # --------------------------------------------------------------------------------------------------------------
 # -- Echo Configuration For Build Types and build Configuration File
 # --------------------------------------------------------------------------------------------------------------
-RUN echo CONFIG_TARGET_ramips=y > .config && \
-    echo CONFIG_TARGET_ramips_mt7628=y >> .config && \
-    echo $FORMAT=y >> .config && \ make defconfig
+RUN echo CONFIG_TARGET_ramips=y > .config
+RUN echo CONFIG_TARGET_ramips_mt7628=y >> .config
+RUN echo $FORMAT=y >> .config
+RUN make defconfig
 
 # --------------------------------------------------------------------------------------------------------------
 # -- Run MAKE to build ToolChain, Binaries and Build Firmware
