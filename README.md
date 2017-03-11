@@ -27,25 +27,25 @@ OpenWRT source is being pulled from [GitHub Repo](https://github.com/noblepepper
 # Basic Usage #
 ---
 Run the Container:
-```dockerfile
+```bash
 docker run -ti --name <ContainerName> ictinike/vocore2-default
 ```
 Build Tools and Toolchain (**Note:** Tools and Toolchain will build automatically issuing just the `make` command):
 
-```dockerfile
+```bash
 make Tools/Install
 make Toolchain/Install
 ```
 
 Update the source FEEDS at a later time:
-```dockerfile
+```bash
 ./scripts/feeds update -a
 ./scripts/feeds install -a
 ```
 
 However, if you wish to change the build format type you can execute:
 
-```dockerfile
+```bash
 echo "<TARGET_TYPE_BELOW>=y" >> .config
 make defconfig
 ```
@@ -60,7 +60,7 @@ Valid Target Types:
 * CONFIG_TARGET_ramips_mt7628_VOCORE2-128M-MAX-GPIO
 
 Build firmware:
-```dockerfile
+```bash
     make
 ```
 ----
