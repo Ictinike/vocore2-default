@@ -24,20 +24,20 @@ The platform consists of an Unbuntu 14.04 Trusty core with added OpenWRT source 
 
 OpenWRT source is being pulled from [GitHub Repo](https://github.com/noblepepper/openwrt-chaoscalmer) upon load to get the latest branch and potential patches. Currently [Noblepepper](https://github.com/noblepepper) is maintaining the community branch of the source.
 
-Basic Usage
-==========
+# Basic Usage #
 ---
 Run the Container:
 ```dockerfile
 docker run -ti --name <ContainerName> ictinike/vocore2-default
 ```
+Build Tools and Toolchain (**Note:** Tools and Toolchain will build automatically issuing just the `make` command):
 
- Upon loading the image, it will download, install and configure the basic environment for building as well update the install the latest from the repo FEEDS.
 ```dockerfile
-    make
+    make Tools/Install
+    make Toolchain/Install
 ```
 
-If you wish to update the FEEDS at a later time, execute:
+Update the source FEEDS at a later time:
 ```dockerfile
     ./scripts/feeds update -a
     ./scripts/feeds install -a
@@ -47,5 +47,24 @@ However, if you wish to change the build format type you can execute:
 
 ```dockerfile
 echo "<TARGET_TYPE_BELOW>=y" >> .config
- make defconfig
+make defconfig
 ```
+
+Valid Target Types:
+* CONFIG_TARGET_ramips_mt7628_VOCORE2-128M
+* CONFIG_TARGET_ramips_mt7628_VOCORE2-128M-SD
+* CONFIG_TARGET_ramips_mt7628_VOCORE2-LITE
+* CONFIG_TARGET_ramips_mt7628_VOCORE2-BETA
+* CONFIG_TARGET_ramips_mt7628_VOCORE2-128M-SPIDEV
+* CONFIG_TARGET_ramips_mt7628_VOCORE2-128M-FLASHWRITE
+* CONFIG_TARGET_ramips_mt7628_VOCORE2-128M-MAX-GPIO
+
+Build firmware:
+```dockerfile
+    make
+```
+----
+
+## Build Output ##
+---
+The build output will be placed in the created `\bin` folder for flashing.
