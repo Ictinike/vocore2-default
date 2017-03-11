@@ -33,14 +33,14 @@ docker run -ti --name <ContainerName> ictinike/vocore2-default
 Build Tools and Toolchain (**Note:** Tools and Toolchain will build automatically issuing just the `make` command):
 
 ```dockerfile
-    make Tools/Install
-    make Toolchain/Install
+make Tools/Install
+make Toolchain/Install
 ```
 
 Update the source FEEDS at a later time:
 ```dockerfile
-    ./scripts/feeds update -a
-    ./scripts/feeds install -a
+./scripts/feeds update -a
+./scripts/feeds install -a
 ```
 
 However, if you wish to change the build format type you can execute:
@@ -67,4 +67,9 @@ Build firmware:
 
 ## Build Output ##
 ---
-The build output will be placed in the created `\bin` folder for flashing.
+The build output will be placed in the created `\bin` folder for flashing to the VoCore2 board.
+
+## Questions, Comments, Sugguestions? ##
+Please email me @ `ictinike@gmail.com` or leave comments on the Docker Hub for the image
+
+Thanks!
